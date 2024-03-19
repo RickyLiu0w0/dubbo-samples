@@ -20,11 +20,19 @@ import org.apache.dubbo.config.ConfigCenterConfig;
 import org.apache.dubbo.config.ReferenceConfig;
 
 import org.apache.dubbo.samples.configcenter.api.api.GreetingsService;
+import org.apache.dubbo.samples.configcenter.api.consumer.ConsumerApplication;
 import org.apache.dubbo.samples.configcenter.api.consumer.ZKTools2;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+@SpringBootTest(classes = ConsumerApplication.class, properties = {
+        "spring.autoconfigure.exclude=org.apache.dubbo.spring.boot.autoconfigure.DubboAutoConfiguration"
+})
+@RunWith(SpringRunner.class)
 public class GreetingsServiceIT {
     private static String zookeeperHost1 = System.getProperty("zookeeper.address.1", "127.0.0.1");
     private static String zookeeperPort1 = System.getProperty("zookeeper.port.1", "2181");

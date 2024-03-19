@@ -13,20 +13,24 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
-package org.apache.dubbo.samples.server;
-
+package org.apache.dubbo.samples.configcenter.api.provider;
 
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ConfigCenterConfig;
 import org.apache.dubbo.config.ServiceConfig;
-import org.apache.dubbo.samples.api.GreetingsService;
+import org.apache.dubbo.samples.configcenter.api.api.GreetingsService;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 import java.util.HashMap;
 import java.util.Map;
+;
 
-public class Provider1 {
+@SpringBootApplication
+public class ProviderApplication1 {
 
     private static ConfigCenterConfig configCenter = new ConfigCenterConfig();
     private static ApplicationConfig applicationConfig = new ApplicationConfig("api-dubbo-provider-1");
@@ -34,7 +38,6 @@ public class Provider1 {
     static {
         configCenter.setExternalConfig(getExternalConfiguration());
     }
-
     public static void main(String[] args) throws Exception {
         ServiceConfig<GreetingsService> service = new ServiceConfig<>();
         service.setApplication(applicationConfig);
@@ -60,4 +63,5 @@ public class Provider1 {
 
         return dubboConfigurations;
     }
+
 }

@@ -13,23 +13,27 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
-package org.apache.dubbo.samples.server;
-
+package org.apache.dubbo.samples.configcenter.api.provider;
 
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ConfigCenterConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.config.ServiceConfig;
-import org.apache.dubbo.samples.api.DemoService;
-import org.apache.dubbo.samples.api.GreetingsService;
+import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
+import org.apache.dubbo.samples.configcenter.api.api.DemoService;
+import org.apache.dubbo.samples.configcenter.api.api.GreetingsService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 
-public class Provider2 {
+@SpringBootApplication
+public class ProviderApplication2 {
     private static ConfigCenterConfig configCenter = new ConfigCenterConfig();
     private static ApplicationConfig application = new ApplicationConfig("api-dubbo-provider-2");
     private static RegistryConfig registry = new RegistryConfig();
@@ -78,4 +82,5 @@ public class Provider2 {
 
         return dubboConfigurations;
     }
+
 }
