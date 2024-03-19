@@ -25,6 +25,7 @@
         <groupId>org.apache.dubbo</groupId>
         <artifactId>dubbo-samples-configcenter-api</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>dubbo-samples-configcenter-api-provider</artifactId>
